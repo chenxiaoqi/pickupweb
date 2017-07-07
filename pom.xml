@@ -25,15 +25,51 @@
             <artifactId>spring-webmvc</artifactId>
             <version>4.3.8.RELEASE</version>
         </dependency>
+            <dependency>
+                <groupId>org.springframework.webflow</groupId>
+                <artifactId>spring-webflow</artifactId>
+                <version>2.4.5.RELEASE</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>opensymphony</groupId>
+                        <artifactId>ognl</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
         <dependency>
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-extras</artifactId>
             <version>3.0.7</version>
         </dependency>
         <dependency>
+            <groupId>ognl</groupId>
+            <artifactId>ognl</artifactId>
+            <version>3.0.8</version>
+        </dependency>
+        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>1.4.195</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>2.1.1</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
