@@ -1,0 +1,1 @@
+INSERT INTO user (name,password) values ('cxq','cxq');
