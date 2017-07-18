@@ -25,9 +25,4 @@ public class SpringTest
     @Autowired
     private DataSource dataSource;
 
-    @Test
-    public void test() throws SQLException
-    {
-
-    }
 }
