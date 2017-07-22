@@ -7,7 +7,6 @@
 
     <tx:annotation-driven/>
 
-
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="url" value="jdbc:h2:mem:"/>
     </bean>
@@ -17,11 +16,14 @@
         <property name="annotatedClasses">
             <array>
                 <value>com.lazyman.pickupweb.dao.Teacher</value>
+                <value>com.lazyman.pickupweb.dao.Course</value>
+                <value>com.lazyman.pickupweb.dao.Student</value>
             </array>
         </property>
         <property name="hibernateProperties">
             <value>
                 hibernate.dialect=org.hibernate.dialect.H2Dialect
+                hibernate.ejb.use_class_enhancer=true
                 hibernate.hbm2ddl.auto=create
                 #hibernate.show_sql=true
             </value>
@@ -32,7 +34,7 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean id="teacherDao" class="com.lazyman.pickupweb.dao.TeacherDaoImpl">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
+    <bean id="teacherDao" class="com.lazyman.pickupweb.dao.TeacherDaoImpl"/>
+    <bean id="courseDao" class="com.lazyman.pickupweb.dao.CourseDaoImpl"/>
+    <bean id="studentDao" class="com.lazyman.pickupweb.dao.StudentDaoImpl"/>
 </beans>

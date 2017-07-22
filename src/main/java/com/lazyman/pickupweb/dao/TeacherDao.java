@@ -14,11 +14,7 @@ import java.util.List;
  * @since [产品/模块版本]
  */
 @Transactional
-public interface TeacherDao
+public interface TeacherDao extends BaseDao<Teacher>
 {
-    @Transactional(readOnly = true)
-    List<Teacher> queryAll();
-
-    int insert(Teacher teacher);
 
 }

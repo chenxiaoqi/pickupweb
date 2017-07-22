@@ -1,33 +1,32 @@
 package com.lazyman.pickupweb.dao;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
  * <一句话功能简述>
  * <功能详细描述>
  *
  * @author c00286900
- * @version [版本号, 2017/7/18]
+ * @version [版本号, 2017/7/19]
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
-@Entity(name = "Teacher")
-public class Teacher implements Serializable
+@Entity(name = "Course")
+public class Course
 {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(length = 24)
+    @Column(length = 128)
     private String name;
 
-    @Column(length = 24)
-    private String phoneNumber;
+    private float price;
 
-    @Column(length = 64)
-    private String email;
+    private int classes;
+
+    @ManyToOne(targetEntity = Teacher.class,fetch = FetchType.LAZY)
+    private Teacher teacher;
 
     public int getId()
     {
@@ -49,24 +48,34 @@ public class Teacher implements Serializable
         this.name = name;
     }
 
-    public String getPhoneNumber()
+    public float getPrice()
     {
-        return phoneNumber;
+        return price;
     }
 
-    public void setPhoneNumber(String phoneNumber)
+    public void setPrice(float price)
     {
-        this.phoneNumber = phoneNumber;
+        this.price = price;
     }
 
-    public String getEmail()
+    public int getClasses()
     {
-        return email;
+        return classes;
     }
 
-    public void setEmail(String email)
+    public void setClasses(int classes)
     {
-        this.email = email;
+        this.classes = classes;
+    }
+
+    public Teacher getTeacher()
+    {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher)
+    {
+        this.teacher = teacher;
     }
 
     @Override
@@ -75,9 +84,9 @@ public class Teacher implements Serializable
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Teacher teacher = (Teacher) o;
+        Course course = (Course) o;
 
-        return id == teacher.id;
+        return id == course.id;
     }
 
     @Override
@@ -89,11 +98,12 @@ public class Teacher implements Serializable
     @Override
     public String toString()
     {
-        return "Teacher{" +
+        return "Course{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' +
+                ", price=" + price +
+                ", classes=" + classes +
+                ", teacher=" + teacher +
                 '}';
     }
 }

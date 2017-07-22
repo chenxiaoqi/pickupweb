@@ -1,21 +1,19 @@
 package com.lazyman.pickupweb.dao;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
  * <一句话功能简述>
  * <功能详细描述>
  *
  * @author c00286900
- * @version [版本号, 2017/7/18]
+ * @version [版本号, 2017/7/19]
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
-@Entity(name = "Teacher")
-public class Teacher implements Serializable
+@Entity(name = "Student")
+public class Student
 {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -75,9 +73,9 @@ public class Teacher implements Serializable
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Teacher teacher = (Teacher) o;
+        Student student = (Student) o;
 
-        return id == teacher.id;
+        return id == student.id;
     }
 
     @Override
@@ -89,7 +87,7 @@ public class Teacher implements Serializable
     @Override
     public String toString()
     {
-        return "Teacher{" +
+        return "Student{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
