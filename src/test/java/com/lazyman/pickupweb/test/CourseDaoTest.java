@@ -24,14 +24,7 @@ import java.io.Serializable;
  * @since [产品/模块版本]
  */
 @Transactional
-@Sql(statements = {
-        "insert into Teacher (id,name,phoneNumber,email) values(1,'cxq_100','13814063078','cxq@163.com')",
-        "insert into Course (id,name,price,classes,teacher_id) values(1,'math',1880,10,1)",
-})
-@Sql(statements = {
-        "delete from Course",
-        "delete from Teacher"
-}, executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+
 public class CourseDaoTest extends SpringTest
 {
 
@@ -41,7 +34,10 @@ public class CourseDaoTest extends SpringTest
     @Autowired
     private TeacherDao teacherDao;
 
-
+    @Sql(statements = {
+            "insert into Teacher (id,name,phoneNumber,email) values(1,'cxq_100','13814063078','cxq@163.com')",
+            "insert into Course (id,name,price,classes,teacher_id) values(1,'math',1880,10,1)",
+    })
     @Test
     @Commit
     public void test()
@@ -56,8 +52,8 @@ public class CourseDaoTest extends SpringTest
 //        courseDao.save(course);
 
 //        System.out.println(course);
-        Course course = courseDao.findById(1);
-        System.out.println(course);
+        Course course = courseDao.get(1);
+        Assert.assertEquals(1880,course.getPrice(),0);
     }
 
 

@@ -67,9 +67,15 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>
     }
 
     @Override
-    public T findById(Serializable oid)
+    public T get(Serializable id)
     {
-        return (T) this.getHibernateTemplate().get(this.clazz, oid);
+        return this.getHibernateTemplate().get(this.clazz, id);
+    }
+
+    @Override
+    public T load(Serializable id)
+    {
+        return this.getHibernateTemplate().load(this.clazz, id);
     }
 
     @Override

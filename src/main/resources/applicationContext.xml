@@ -18,6 +18,8 @@
                 <value>com.lazyman.pickupweb.dao.Teacher</value>
                 <value>com.lazyman.pickupweb.dao.Course</value>
                 <value>com.lazyman.pickupweb.dao.Student</value>
+                <value>com.lazyman.pickupweb.dao.CourseSchedule</value>
+                <value>com.lazyman.pickupweb.dao.StudentCourseRecord</value>
             </array>
         </property>
         <property name="hibernateProperties">
@@ -37,4 +39,7 @@
     <bean id="teacherDao" class="com.lazyman.pickupweb.dao.TeacherDaoImpl"/>
     <bean id="courseDao" class="com.lazyman.pickupweb.dao.CourseDaoImpl"/>
     <bean id="studentDao" class="com.lazyman.pickupweb.dao.StudentDaoImpl"/>
+    <bean id="studentClassRecordDao" class="com.lazyman.pickupweb.dao.StudentCourseRecordDaoImpl"/>
+    <bean id="courseScheduleDao" class="com.lazyman.pickupweb.dao.CourseScheduleDaoImpl"/>
+
 </beans>

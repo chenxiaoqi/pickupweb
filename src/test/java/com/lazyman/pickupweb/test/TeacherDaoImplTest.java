@@ -61,7 +61,7 @@ public class TeacherDaoImplTest extends SpringTest
         Assert.assertEquals("陈小奇", teacherFromQuery.getName());
         Assert.assertSame(teacher, teacherFromQuery);
 
-        Teacher teacherFromGet = teacherDao.findById(teacherId);
+        Teacher teacherFromGet = teacherDao.get(teacherId);
         Assert.assertSame(teacherFromGet, teacherFromQuery);
     }
 

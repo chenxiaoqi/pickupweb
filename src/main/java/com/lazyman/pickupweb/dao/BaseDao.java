@@ -25,7 +25,9 @@ public interface BaseDao<T>
 
     void delete(T entity);
 
-    T findById(Serializable oid);
+    T get(Serializable id);
+
+    T load(Serializable id);
 
     List<T> findAll();
 
