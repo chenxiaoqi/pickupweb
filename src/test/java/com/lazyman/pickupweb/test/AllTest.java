@@ -14,7 +14,7 @@ import org.junit.runners.Suite;
  * @since [产品/模块版本]
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({CourseDaoTest.class,TeacherDaoImplTest.class})
+@Suite.SuiteClasses({CourseDaoTest.class,TeacherDaoImplTest.class,StudentCourseDaoTest.class})
 public class AllTest
 {
 }

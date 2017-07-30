@@ -1,9 +1,8 @@
 package com.lazyman.pickupweb.dao;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import com.lazyman.pickupweb.model.BaseEntity;
+
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -15,12 +14,9 @@ import java.util.Date;
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
-public class StudentPay
+@Entity(name = "studentPay")
+public class StudentPay extends BaseEntity
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
     private Date date;
 
     private float fee;
@@ -30,16 +26,6 @@ public class StudentPay
 
     @ManyToOne(targetEntity = Course.class, optional = false)
     private Course course;
-
-    public int getId()
-    {
-        return id;
-    }
-
-    public void setId(int id)
-    {
-        this.id = id;
-    }
 
     public Date getDate()
     {
@@ -81,32 +67,4 @@ public class StudentPay
         this.course = course;
     }
 
-    @Override
-    public boolean equals(Object o)
-    {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        StudentPay that = (StudentPay) o;
-
-        return id == that.id;
-    }
-
-    @Override
-    public int hashCode()
-    {
-        return id;
-    }
-
-    @Override
-    public String toString()
-    {
-        return "StudentPay{" +
-                "id=" + id +
-                ", date=" + date +
-                ", fee=" + fee +
-                ", student=" + student +
-                ", course=" + course +
-                '}';
-    }
 }

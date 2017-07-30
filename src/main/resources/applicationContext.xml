@@ -18,6 +18,7 @@
                 <value>com.lazyman.pickupweb.dao.Teacher</value>
                 <value>com.lazyman.pickupweb.dao.Course</value>
                 <value>com.lazyman.pickupweb.dao.Student</value>
+                <value>com.lazyman.pickupweb.dao.StudentPay</value>
                 <value>com.lazyman.pickupweb.dao.CourseSchedule</value>
                 <value>com.lazyman.pickupweb.dao.StudentCourseRecord</value>
             </array>

@@ -1,5 +1,7 @@
 package com.lazyman.pickupweb.dao;
 
+import com.lazyman.pickupweb.model.BaseEntity;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -13,12 +15,8 @@ import java.sql.Date;
  * @since [产品/模块版本]
  */
 @Entity(name = "CourseSchedule")
-public class CourseSchedule
+public class CourseSchedule extends BaseEntity
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
     private Date time;
 
     @ManyToOne(targetEntity = Course.class, fetch = FetchType.LAZY)
@@ -26,16 +24,6 @@ public class CourseSchedule
 
     @ManyToOne(targetEntity = Teacher.class, fetch = FetchType.LAZY)
     private Teacher teacher;
-
-    public int getId()
-    {
-        return id;
-    }
-
-    public void setId(int id)
-    {
-        this.id = id;
-    }
 
     public Date getTime()
     {
@@ -67,31 +55,4 @@ public class CourseSchedule
         this.teacher = teacher;
     }
 
-    @Override
-    public boolean equals(Object o)
-    {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        CourseSchedule that = (CourseSchedule) o;
-
-        return id == that.id;
-    }
-
-    @Override
-    public int hashCode()
-    {
-        return id;
-    }
-
-    @Override
-    public String toString()
-    {
-        return "CourseSchedule{" +
-                "id=" + id +
-                ", time=" + time +
-                ", course=" + course +
-                ", teacher=" + teacher +
-                '}';
-    }
 }
