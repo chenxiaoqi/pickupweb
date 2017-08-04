@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Projections;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import javax.annotation.Resource;
@@ -34,12 +35,6 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>
         Type[] actualTypeArguments = pType.getActualTypeArguments();
 
         clazz = (Class<T>) (actualTypeArguments[0]);
-    }
-
-    @Resource
-    public void setMySessionFactory(SessionFactory sessionFactory)
-    {
-        super.setSessionFactory(sessionFactory);
     }
 
     @Override
