@@ -16,7 +16,7 @@ public class Login {
 
     @GetMapping
     public String loginPage(){
-        return "login.jsp";
+        return "/login/login";
     }
 
     @PostMapping
@@ -24,7 +24,7 @@ public class Login {
     {
         model.addAttribute("name",name);
         model.addAttribute("password",password);
-        return "success.jsp";
+        return "/login/success";
     }
 
 
