@@ -45,10 +45,14 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean id="teacherDao" class="com.lazyman.pickupweb.dao.TeacherDaoImpl"/>
-    <bean id="courseDao" class="com.lazyman.pickupweb.dao.CourseDaoImpl"/>
-    <bean id="studentDao" class="com.lazyman.pickupweb.dao.StudentDaoImpl"/>
-    <bean id="studentClassRecordDao" class="com.lazyman.pickupweb.dao.StudentCourseRecordDaoImpl"/>
-    <bean id="courseScheduleDao" class="com.lazyman.pickupweb.dao.CourseScheduleDaoImpl"/>
+    <bean id="baseDao" class="com.lazyman.pickupweb.dao.BaseDaoImpl" abstract="true">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="teacherDao" class="com.lazyman.pickupweb.dao.TeacherDaoImpl" parent="baseDao"/>
+    <bean id="courseDao" class="com.lazyman.pickupweb.dao.CourseDaoImpl" parent="baseDao"/>
+    <bean id="studentDao" class="com.lazyman.pickupweb.dao.StudentDaoImpl" parent="baseDao"/>
+    <bean id="studentClassRecordDao" class="com.lazyman.pickupweb.dao.StudentCourseRecordDaoImpl" parent="baseDao"/>
+    <bean id="courseScheduleDao" class="com.lazyman.pickupweb.dao.CourseScheduleDaoImpl" parent="baseDao"/>
 
 </beans>
