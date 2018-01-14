@@ -1,9 +1,6 @@
 package com.lazyman.pickupweb.test.rxjava;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
+import io.reactivex.*;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import org.junit.Test;
@@ -16,20 +13,23 @@ public class RXJavaTest {
     @Test
     public void test()
     {
-        Observable<Integer>  observable = Observable.create(new ObservableOnSubscribe<Integer>() {
-            @Override
-            public void subscribe(ObservableEmitter<Integer> observableEmitter) throws Exception {
-                observableEmitter.onNext(1);
-                observableEmitter.onNext(2);
-                observableEmitter.onComplete();
-            }
+        Observable<Integer>  observable = Observable.create(observableEmitter -> {
+            observableEmitter.onNext(1);
+            observableEmitter.onNext(2);
+            observableEmitter.onError(new IllegalStateException());
+            observableEmitter.onComplete();
+            observableEmitter.tryOnError(new Exception());
         });
-        observable.subscribe(new Consumer<Integer>() {
-            @Override
-            public void accept(Integer integer) throws Exception {
-                System.out.println(integer);
-            }
-        });
+
+        observable = observable.cache();
+
+
+
+
+        observable.subscribe(System.out::println);
+        observable.subscribe(System.out::println);
+
+
         observable.subscribe(new Observer<Integer>() {
             @Override
             public void onSubscribe(Disposable disposable) {
@@ -41,7 +41,7 @@ public class RXJavaTest {
             public void onNext(Integer integer) {
                 System.out.println("onNext " + integer);
             }
- 
+
             @Override
             public void onError(Throwable throwable) {
                 System.out.println("onError");
