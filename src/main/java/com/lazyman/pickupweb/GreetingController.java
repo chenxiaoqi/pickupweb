@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- * Created by chenxiaoqi on 2017/6/16.
+ * Author chenxiaoqi on 2017/6/16.
  */
 @Controller
 public class GreetingController {
