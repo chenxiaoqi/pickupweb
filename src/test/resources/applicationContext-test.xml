@@ -9,4 +9,9 @@
 
     <bean id="bean" class="com.lazyman.pickupweb.test.study.Bean"/>
 
+
+    <bean id="mockStudentDao" class="org.mockito.Mockito" factory-method="mock">
+        <constructor-arg value="com.lazyman.pickupweb.dao.StudentDao"/>
+    </bean>
+
 </beans>
