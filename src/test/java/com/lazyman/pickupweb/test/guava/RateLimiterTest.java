@@ -1,6 +1,7 @@
 package com.lazyman.pickupweb.test.guava;
 
 import com.google.common.util.concurrent.RateLimiter;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -12,6 +13,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
  */
 public class RateLimiterTest {
 
+    @Ignore
     @Test
     public void test() throws InterruptedException {
 

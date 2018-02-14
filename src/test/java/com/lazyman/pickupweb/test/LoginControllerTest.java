@@ -1,14 +1,21 @@
 package com.lazyman.pickupweb.test;
 
-import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import com.lazyman.pickupweb.Login;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.htmlunit.MockMvcWebClientBuilder;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.Map;
+
+import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.*;
+
 
 /**
  * <一句话功能简述>
@@ -19,26 +26,32 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
-public class LoginControllerTest extends SpringTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@RunWith(SpringRunner.class)
+public class LoginControllerTest
 {
-    private MockMvc mockMvc;
 
-    private WebClient webClient;
+    @Autowired
+    private TestRestTemplate restTemplate;
 
+    @Autowired
+    private Login login;
 
     @Before
     public void before()
     {
-        this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
-        this.webClient = MockMvcWebClientBuilder.webAppContextSetup(wac).build();
+
     }
 
     @Test
     public void test() throws Exception
     {
-//        this.mockMvc.perform(get("/login/login.action")).andExpect(status().isOk()).andExpect(forwardedUrl("login.jsp"));
+        assertThat(login.login("user", "cxq"), allOf(hasEntry("name", "user"), hasEntry("password", "cxq")));
 
-        HtmlPage loginPage = webClient.getPage("http://localhost/login/login.action");
-        System.out.println(loginPage);
+        assertThat(login.login("userx", "cxq"), hasKey("error"));
+
+        Map<String,String> map = restTemplate.getForObject("/login?name=user&password=cxq", Map.class);
+
+        assertThat(map,both(hasEntry("name","user")).and(hasEntry("password","cxq")));
     }
 }

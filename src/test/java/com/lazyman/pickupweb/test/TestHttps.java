@@ -4,6 +4,7 @@ import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.io.HexDump;
 import org.apache.commons.io.IOUtils;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import sun.misc.HexDumpEncoder;
 
@@ -32,6 +33,7 @@ import java.util.Enumeration;
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
+@Ignore
 public class TestHttps
 {
     @Test

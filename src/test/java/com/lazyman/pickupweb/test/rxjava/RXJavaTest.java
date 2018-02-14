@@ -3,6 +3,7 @@ package com.lazyman.pickupweb.test.rxjava;
 import io.reactivex.*;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -10,6 +11,7 @@ import org.junit.Test;
  */
 public class RXJavaTest {
 
+    @Ignore
     @Test
     public void test()
     {

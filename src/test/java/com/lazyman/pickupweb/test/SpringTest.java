@@ -21,7 +21,7 @@ import javax.sql.DataSource;
         "delete from Teacher",
         "delete from Student",
 }, executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
-public class SpringTest
+public abstract class SpringTest
 {
     @Autowired
     protected WebApplicationContext wac;
