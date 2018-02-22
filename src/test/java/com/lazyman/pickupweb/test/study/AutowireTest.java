@@ -1,7 +1,7 @@
 package com.lazyman.pickupweb.test.study;
 
-import com.lazyman.pickupweb.dao.Student;
-import com.lazyman.pickupweb.dao.StudentDao;
+import com.lazyman.pickupweb.course.Student;
+import com.lazyman.pickupweb.course.StudentDao;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.lazyman.pickupweb.dao;
+package com.lazyman.pickupweb.course;
 
 /**
  * <一句话功能简述>

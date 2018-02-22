@@ -1,6 +1,7 @@
-package com.lazyman.pickupweb.dao;
+package com.lazyman.pickupweb.course;
 
-import com.lazyman.pickupweb.model.NamedEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.lazyman.pickupweb.NamedEntity;
 
 import javax.persistence.*;
 
@@ -38,6 +39,7 @@ public class Course extends NamedEntity {
         this.classes = classes;
     }
 
+    @JsonIgnore
     public Teacher getTeacher() {
         return teacher;
     }

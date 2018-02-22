@@ -1,14 +1,12 @@
 package com.lazyman.pickupweb.test;
 
-import com.lazyman.pickupweb.Login;
+import com.lazyman.pickupweb.admin.Login;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Map;
@@ -26,10 +24,10 @@ import static org.hamcrest.Matchers.*;
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(properties = {"security.basic.enabled=false"},
+        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)
-public class LoginControllerTest
-{
+public class LoginControllerTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -38,20 +36,18 @@ public class LoginControllerTest
     private Login login;
 
     @Before
-    public void before()
-    {
+    public void before() {
 
     }
 
     @Test
-    public void test() throws Exception
-    {
+    public void test() throws Exception {
         assertThat(login.login("user", "cxq"), allOf(hasEntry("name", "user"), hasEntry("password", "cxq")));
 
         assertThat(login.login("userx", "cxq"), hasKey("error"));
 
-        Map<String,String> map = restTemplate.getForObject("/login?name=user&password=cxq", Map.class);
+        Map<String, String> map = restTemplate.getForObject("/login?name=user&password=cxq", Map.class);
 
-        assertThat(map,both(hasEntry("name","user")).and(hasEntry("password","cxq")));
+        assertThat(map, both(hasEntry("name", "user")).and(hasEntry("password", "cxq")));
     }
 }

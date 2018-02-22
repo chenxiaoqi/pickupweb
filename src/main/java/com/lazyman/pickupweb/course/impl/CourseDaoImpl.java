@@ -1,4 +1,7 @@
-package com.lazyman.pickupweb.dao;
+package com.lazyman.pickupweb.course.impl;
+
+import com.lazyman.pickupweb.course.Course;
+import com.lazyman.pickupweb.course.CourseDao;
 
 /**
  * <一句话功能简述>

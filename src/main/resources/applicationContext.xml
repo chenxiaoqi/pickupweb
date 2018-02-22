@@ -22,12 +22,12 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="annotatedClasses">
             <array>
-                <value>com.lazyman.pickupweb.dao.Teacher</value>
-                <value>com.lazyman.pickupweb.dao.Course</value>
-                <value>com.lazyman.pickupweb.dao.Student</value>
-                <value>com.lazyman.pickupweb.dao.StudentPay</value>
-                <value>com.lazyman.pickupweb.dao.CourseSchedule</value>
-                <value>com.lazyman.pickupweb.dao.StudentCourseRecord</value>
+                <value>com.lazyman.pickupweb.course.Teacher</value>
+                <value>com.lazyman.pickupweb.course.Course</value>
+                <value>com.lazyman.pickupweb.course.Student</value>
+                <value>com.lazyman.pickupweb.course.StudentPay</value>
+                <value>com.lazyman.pickupweb.course.CourseSchedule</value>
+                <value>com.lazyman.pickupweb.course.StudentCourseRecord</value>
             </array>
         </property>
         <property name="hibernateProperties">
@@ -44,14 +44,14 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean id="baseDao" class="com.lazyman.pickupweb.dao.BaseDaoImpl" abstract="true">
+    <bean id="baseDao" class="com.lazyman.pickupweb.course.impl.BaseDaoImpl" abstract="true">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <bean id="teacherDao" class="com.lazyman.pickupweb.dao.TeacherDaoImpl" parent="baseDao"/>
-    <bean id="courseDao" class="com.lazyman.pickupweb.dao.CourseDaoImpl" parent="baseDao"/>
-    <bean id="studentDao" class="com.lazyman.pickupweb.dao.StudentDaoImpl" parent="baseDao"/>
-    <bean id="studentClassRecordDao" class="com.lazyman.pickupweb.dao.StudentCourseRecordDaoImpl" parent="baseDao"/>
-    <bean id="courseScheduleDao" class="com.lazyman.pickupweb.dao.CourseScheduleDaoImpl" parent="baseDao"/>
+    <bean id="teacherDao" class="com.lazyman.pickupweb.course.impl.TeacherDaoImpl" parent="baseDao"/>
+    <bean id="courseDao" class="com.lazyman.pickupweb.course.impl.CourseDaoImpl" parent="baseDao"/>
+    <bean id="studentDao" class="com.lazyman.pickupweb.course.impl.StudentDaoImpl" parent="baseDao"/>
+    <bean id="studentClassRecordDao" class="com.lazyman.pickupweb.course.impl.StudentClassRecordDaoImpl" parent="baseDao"/>
+    <bean id="courseScheduleDao" class="com.lazyman.pickupweb.course.impl.CourseScheduleDaoImpl" parent="baseDao"/>
 
 </beans>

@@ -1,4 +1,4 @@
-package com.lazyman.pickupweb.dao;
+package com.lazyman.pickupweb.course;
 
 /**
  * <一句话功能简述>
@@ -9,7 +9,6 @@ package com.lazyman.pickupweb.dao;
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
-public class StudentDaoImpl extends BaseDaoImpl<Student> implements StudentDao
+public interface StudentDao extends BaseDao<Student>
 {
-
 }

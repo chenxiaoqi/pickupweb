@@ -1,17 +1,15 @@
 package com.lazyman.pickupweb.test;
 
-import com.lazyman.pickupweb.dao.Teacher;
-import com.lazyman.pickupweb.dao.TeacherDao;
+import com.lazyman.pickupweb.course.Teacher;
+import com.lazyman.pickupweb.course.TeacherDao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.init.ScriptUtils;
 import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.jdbc.Sql;
-import org.springframework.test.jdbc.JdbcTestUtils;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;

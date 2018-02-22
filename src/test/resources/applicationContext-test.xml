@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="student" class="com.lazyman.pickupweb.dao.Student">
+    <bean id="student" class="com.lazyman.pickupweb.course.Student">
         <property name="email" value="cxqpfan@163.com"/>
     </bean>
 
@@ -11,7 +11,7 @@
 
 
     <bean id="mockStudentDao" class="org.mockito.Mockito" factory-method="mock">
-        <constructor-arg value="com.lazyman.pickupweb.dao.StudentDao"/>
+        <constructor-arg value="com.lazyman.pickupweb.course.StudentDao"/>
     </bean>
 
 </beans>

@@ -1,6 +1,7 @@
 package com.lazyman.pickupweb.test;
 
-import com.lazyman.pickupweb.dao.*;
+import com.lazyman.pickupweb.course.*;
+import com.lazyman.pickupweb.course.impl.StudentClassRecordDaoImpl;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,7 +34,7 @@ public class StudentCourseDaoTest extends SpringTest
     private CourseScheduleDao courseScheduleDao;
 
     @Autowired
-    private StudentCourseRecordDaoImpl studentClassRecordDao;
+    private StudentClassRecordDaoImpl studentClassRecordDao;
 
     @Test
     @Transactional

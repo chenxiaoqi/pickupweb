@@ -1,7 +1,8 @@
-package com.lazyman.pickupweb.model;
+package com.lazyman.pickupweb;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotNull;
 
 /**
  * Author chenxiaoqi on 2017/7/30.

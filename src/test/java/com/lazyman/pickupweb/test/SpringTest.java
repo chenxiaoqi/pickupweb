@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 
 @WebAppConfiguration
 @ContextConfiguration(
-        value = {"/applicationContext.xml", "file:src/main/webapp/WEB-INF/pickup-web-servlet.xml"})
+        value = {"/applicationContext.xml"})
 @RunWith(SpringRunner.class)
 @Sql(statements = {
         "delete from StudentCourseRecord",

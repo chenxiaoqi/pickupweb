@@ -1,8 +1,6 @@
-package com.lazyman.pickupweb.dao;
+package com.lazyman.pickupweb.course;
 
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 /**
  * <一句话功能简述>

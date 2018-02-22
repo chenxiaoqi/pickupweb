@@ -1,6 +1,6 @@
-package com.lazyman.pickupweb.dao;
+package com.lazyman.pickupweb.course;
 
-import com.lazyman.pickupweb.model.BaseEntity;
+import com.lazyman.pickupweb.BaseEntity;
 
 import javax.persistence.*;
 import java.sql.Date;

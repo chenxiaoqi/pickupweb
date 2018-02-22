@@ -1,9 +1,9 @@
 package com.lazyman.pickupweb.test;
 
-import com.lazyman.pickupweb.dao.Course;
-import com.lazyman.pickupweb.dao.CourseDao;
-import com.lazyman.pickupweb.dao.Teacher;
-import com.lazyman.pickupweb.dao.TeacherDao;
+import com.lazyman.pickupweb.course.Course;
+import com.lazyman.pickupweb.course.CourseDao;
+import com.lazyman.pickupweb.course.Teacher;
+import com.lazyman.pickupweb.course.TeacherDao;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,8 +11,6 @@ import org.springframework.test.annotation.Commit;
 import org.springframework.test.context.jdbc.Sql;
 
 import javax.transaction.Transactional;
-import java.awt.*;
-import java.io.Serializable;
 
 /**
  * <一句话功能简述>
@@ -43,17 +41,19 @@ public class CourseDaoTest extends SpringTest
     public void test()
     {
 
-//        Teacher teacher = teacherDao.findById(1);
-//        Course course = new Course();
-//        course.setClasses(10);
-//        course.setPrice(1880);
-//        course.setName("physic");
-//        course.setTeacher(teacher);
-//        courseDao.save(course);
+        Teacher teacher = teacherDao.load(1);
+        Course course = new Course();
+        course.setClasses(10);
+        course.setPrice(1880);
+        course.setName("physic");
+        course.setTeacher(teacher);
+        courseDao.save(course);
 
 //        System.out.println(course);
-        Course course = courseDao.get(1);
+         course = courseDao.get(1);
         Assert.assertEquals(1880,course.getPrice(),0);
+
+        System.out.println("###########"+ courseDao.findAll());
     }
 
 

@@ -1,4 +1,4 @@
-package com.lazyman.pickupweb.model;
+package com.lazyman.pickupweb;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

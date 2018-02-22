@@ -1,4 +1,4 @@
-package com.lazyman.pickupweb.dao;
+package com.lazyman.pickupweb.course;
 
 import javax.persistence.*;
 import java.io.Serializable;

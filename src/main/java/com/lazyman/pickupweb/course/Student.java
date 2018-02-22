@@ -1,6 +1,6 @@
-package com.lazyman.pickupweb.dao;
+package com.lazyman.pickupweb.course;
 
-import com.lazyman.pickupweb.model.NamedEntity;
+import com.lazyman.pickupweb.NamedEntity;
 
 import javax.persistence.*;
 

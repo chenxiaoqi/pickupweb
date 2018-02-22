@@ -9,5 +9,5 @@
     </bean>
 
     <bean class="com.lazyman.pickupweb.GreetingController"/>
-    <bean class="com.lazyman.pickupweb.Login"/>
+    <bean class="com.lazyman.pickupweb.admin.Login"/>
 </beans>

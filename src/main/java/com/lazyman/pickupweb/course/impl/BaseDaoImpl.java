@@ -1,14 +1,12 @@
-package com.lazyman.pickupweb.dao;
+package com.lazyman.pickupweb.course.impl;
 
+import com.lazyman.pickupweb.course.BaseDao;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Projections;
 import org.hibernate.query.Query;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
-import javax.annotation.Resource;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -76,7 +74,7 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T>
     @Override
     public List<T> findAll()
     {
-        return (List<T>) this.getHibernateTemplate().find("from " + this.clazz.getSimpleName());
+        return (List<T>) this.getHibernateTemplate().find("from " + this.clazz.getName());
     }
 
     @Override
