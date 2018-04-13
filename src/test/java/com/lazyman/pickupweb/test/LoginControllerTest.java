@@ -42,9 +42,9 @@ public class LoginControllerTest {
 
     @Test
     public void test() throws Exception {
-        assertThat(login.login("user", "cxq",null), allOf(hasEntry("name", "user"), hasEntry("password", "cxq")));
+        assertThat(login.login("user", "cxq"), allOf(hasEntry("name", "user"), hasEntry("password", "cxq")));
 
-        assertThat(login.login("userx", "cxq",null), hasKey("error"));
+        assertThat(login.login("userx", "cxq"), hasKey("error"));
 
         Map<String, String> map = restTemplate.getForObject("/login?name=user&password=cxq", Map.class);
 

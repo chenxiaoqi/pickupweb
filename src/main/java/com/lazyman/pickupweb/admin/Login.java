@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Map;
@@ -34,8 +32,9 @@ public class Login
 
     @RequestMapping(produces = {"application/json"})
     @ResponseBody
-    @Valid
-    public Map<String, String> login(@RequestParam String name, @RequestParam String password, HttpServletRequest request)
+    public Map<String, String> login(
+            @RequestParam String name,
+            @RequestParam String password)
     {
         boolean success = jdbcTemplate.query("SELECT * FROM user WHERE name=? and password=?", ResultSet::next, name, password);
 
@@ -49,8 +48,6 @@ public class Login
         {
             map.put("error","name or password miss match.");
         }
-
-        request.getSession();
         return map;
     }
 }
