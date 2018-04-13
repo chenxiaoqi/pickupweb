@@ -12,10 +12,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @see [相关类/方法]
  * @since [产品/模块版本]
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.lazyman.pickupweb")
 public class Example
 {
-    public static void main(String[] args) throws Exception
+    public static void main(String[] args)
     {
         SpringApplication.run(Example.class, args);
 

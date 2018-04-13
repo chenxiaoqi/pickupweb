@@ -11,8 +11,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Map;
 
-import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.Assert.assertThat;
 
 
 /**
@@ -42,9 +42,9 @@ public class LoginControllerTest {
 
     @Test
     public void test() throws Exception {
-        assertThat(login.login("user", "cxq"), allOf(hasEntry("name", "user"), hasEntry("password", "cxq")));
+        assertThat(login.login("user", "cxq",null), allOf(hasEntry("name", "user"), hasEntry("password", "cxq")));
 
-        assertThat(login.login("userx", "cxq"), hasKey("error"));
+        assertThat(login.login("userx", "cxq",null), hasKey("error"));
 
         Map<String, String> map = restTemplate.getForObject("/login?name=user&password=cxq", Map.class);
 

@@ -16,7 +16,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.orm.hibernate5.support.OpenSessionInViewInterceptor;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -71,8 +71,8 @@ public class PickupWebConfiguration implements ResourceLoaderAware{
     }
 
     @Bean
-    public WebMvcConfigurerAdapter webMvcConfigurerAdapter(SessionFactory sessionFactory){
-        return new WebMvcConfigurerAdapter() {
+    public WebMvcConfigurer webMvcConfigurerAdapter(SessionFactory sessionFactory){
+        return new WebMvcConfigurer() {
             @Override
             public void addInterceptors(InterceptorRegistry registry) {
                 OpenSessionInViewInterceptor interceptor = new OpenSessionInViewInterceptor();

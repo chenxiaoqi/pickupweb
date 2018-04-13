@@ -1,4 +1,9 @@
 server:
   address: 127.0.0.1
-  port: 80
-debug: true
+  port: 8080
+debug: false
+
+
+pickupweb:
+  log:
+    level: info

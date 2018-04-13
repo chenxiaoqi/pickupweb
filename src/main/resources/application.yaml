@@ -1,39 +1,16 @@
 server:
   address: 127.0.0.1
   port: 80
+  servlet:
+    session:
+      timeout: 15m
+
 spring:
-  devtools:
-    remote:
-      secret: mysecret
   application:
     name: pickup-web
-    admin:
-      enabled: true
   output:
     ansi:
       enabled: detect
-  jpa:
-    open-in-view: false
-security:
-  basic:
-    enabled: false
-  user:
-    password: cxq
 
-management:
-  address: 127.0.0.1
-  port: 9001
-  security:
-    enabled: false
-  context-path: /admin
-
-endpoints:
-  beans.id: springbeans
-  shutdown:
-    enabled: true
 logging:
   register-shutdown-hook: true
-
-pickupweb:
-  log:
-    level: info
