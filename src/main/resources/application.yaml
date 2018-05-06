@@ -11,6 +11,8 @@ spring:
   output:
     ansi:
       enabled: detect
+  resources:
+    static-locations: file:src/main/resources/public
 
 logging:
   register-shutdown-hook: true
