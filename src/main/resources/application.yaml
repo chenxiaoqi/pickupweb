@@ -4,6 +4,12 @@ server:
   servlet:
     session:
       timeout: 15m
+  ssl:
+    enabled: true
+    key-password: 123456
+    key-store-password: 123456
+    key-store: classpath:tomcat.keystore
+    key-alias: lazyman
 
 spring:
   application:

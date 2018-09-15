@@ -70,31 +70,30 @@ public class TestHttps
     public void testRSA() throws KeyStoreException, IOException, CertificateException, NoSuchAlgorithmException, UnrecoverableEntryException, NoSuchPaddingException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, NoSuchProviderException, SignatureException
     {
         KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
-        keyStore.load(new FileInputStream("D:\\programe\\apache-tomcat-9.0.0.M21\\conf\\sslstudy.keystore"),"changeit".toCharArray());
-        System.out.println("");
+        keyStore.load(this.getClass().getResourceAsStream("/tomcat.keystore"),"123456".toCharArray());
         Certificate certificate = keyStore.getCertificate("tomcat");
 
         HexDumpEncoder encoder = new HexDumpEncoder();
         PublicKey publicKey = certificate.getPublicKey();
-        PrivateKey privateKey = (PrivateKey) keyStore.getKey("tomcat", "changeit".toCharArray());
+        PrivateKey privateKey = (PrivateKey) keyStore.getKey("tomcat", "123456".toCharArray());
         System.out.println("==================public key=========================");
-//        System.out.println(encoder.encode(publicKey.getEncoded()));
+        System.out.println(encoder.encode(publicKey.getEncoded()));
         System.out.println("====================private key=======================");
-//        System.out.println(encoder.encode(privateKey.getEncoded()));
+        System.out.println(encoder.encode(privateKey.getEncoded()));
 
-        CertificateFactory certificateFactory = CertificateFactory.getInstance("x.509","SUN");
-        System.out.println(certificateFactory.getProvider().getName());
-        Certificate certificateFromFile = certificateFactory.generateCertificate(new FileInputStream("D:\\programe\\apache-tomcat-9.0.0.M21\\conf\\sslstudy.cer"));
-        Assert.assertEquals(certificate,certificateFromFile);
-        certificate.verify(publicKey);
-
-        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-        cipher.init(Cipher.ENCRYPT_MODE,publicKey);
-        String txt = "123456";
-        byte[] encrypted = cipher.doFinal(txt.getBytes());
-//        System.out.println(encoder.encode(encrypted));
-        cipher.init(Cipher.DECRYPT_MODE,privateKey);
-        Assert.assertEquals(txt,new String(cipher.doFinal(encrypted)));
+//        CertificateFactory certificateFactory = CertificateFactory.getInstance("x.509","SUN");
+//        System.out.println(certificateFactory.getProvider().getName());
+//        Certificate certificateFromFile = certificateFactory.generateCertificate(new FileInputStream("D:\\programe\\apache-tomcat-9.0.0.M21\\conf\\sslstudy.cer"));
+//        Assert.assertEquals(certificate,certificateFromFile);
+//        certificate.verify(publicKey);
+//
+//        Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+//        cipher.init(Cipher.ENCRYPT_MODE,publicKey);
+//        String txt = "123456";
+//        byte[] encrypted = cipher.doFinal(txt.getBytes());
+////        System.out.println(encoder.encode(encrypted));
+//        cipher.init(Cipher.DECRYPT_MODE,privateKey);
+//        Assert.assertEquals(txt,new String(cipher.doFinal(encrypted)));
 
     }
 
