@@ -7,11 +7,17 @@
         <property name="email" value="cxqpfan@163.com"/>
     </bean>
 
-    <bean id="bean" class="com.lazyman.pickupweb.test.study.Bean"/>
+
+    <bean id="bean" class="com.lazyman.pickupweb.test.study.Bean">
+
+    </bean>
 
 
     <bean id="mockStudentDao" class="org.mockito.Mockito" factory-method="mock">
         <constructor-arg value="com.lazyman.pickupweb.course.StudentDao"/>
     </bean>
 
+    <bean id="service" class="com.lazyman.pickupweb.test.study.Service">
+        <property name="bean" ref="bean"/>
+    </bean>
 </beans>

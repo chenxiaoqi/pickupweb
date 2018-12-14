@@ -46,5 +46,4 @@ public class AutowireTest {
         verify(studentDao).get(2);
 
     }
-
 }

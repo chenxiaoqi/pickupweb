@@ -41,7 +41,7 @@ public class TestJunit {
 
     }
 
-    @Ignore("test for demonstration")
+    @Ignore("testProperty for demonstration")
     @Test(expected = IllegalStateException.class)
     public void testException()
     {

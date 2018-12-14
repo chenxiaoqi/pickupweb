@@ -60,7 +60,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>19.0</version>
+            <version>27.0-jre</version>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
@@ -120,6 +120,11 @@
             <artifactId>htmlunit</artifactId>
             <version>2.27</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
