@@ -1,9 +1,9 @@
 package com.lazyman.pickupweb;
 
-import org.apache.commons.io.Charsets;
 import org.apache.commons.io.IOUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -23,6 +23,7 @@ import java.util.Enumeration;
 public class HttpDump
 {
     @RequestMapping(path = "/dump")
+    @ResponseBody
     public void dump(HttpServletRequest request) throws IOException
     {
         Enumeration<String> enumeration = request.getHeaderNames();
